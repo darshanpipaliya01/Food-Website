@@ -1,58 +1,3 @@
-// import { Box } from "@mui/material";
-// import {Typography} from "@mui/material";
-// import logo from './img/ChatGPT Image Dec 23, 2025, 07_04_39 PM.png'
-
-// function Header(){
-//     return(
-//         <Box sx={{display:'flex',paddingTop:'10px',padding:'10px'}}>
-//             <Box>
-//                 <Typography>
-//                     <img style={{width:'150px'}} src={logo} alt="" />
-//                     {/* <img style={{width:'100px'}} src="https://t3.ftcdn.net/jpg/02/71/87/46/360_F_271874627_dHmQaKzmsnNjueIQEfbSoGaBBSiCKFYo.jpg" alt="" /> */}
-//                 </Typography>
-//                 </Box>
-//                 <Box sx={{display:'flex',gap:'40px',paddingTop:'40px',ml:16}}>
-//                 <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     HOME <i class="fa-solid fa-angle-down"></i>
-//                 </Typography>
-//                   <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     ABOUT
-//                 </Typography>
-//                  <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     MENU
-//                 </Typography>
-//                  <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     BLOG <i class="fa-solid fa-angle-down"></i>
-//                 </Typography>
-//                  <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     PAGES <i class="fa-solid fa-angle-down"></i>
-//                 </Typography>
-//                  <Typography sx={{fontWeight:'700',fontFamily:'inherit'}}>
-//                     CONTACT
-//                 </Typography>
-//                 </Box>
-
-//                 <Box sx={{ml:16,display:'flex',paddingTop:'20px'}}>
-//                     <Typography sx={{paddingTop:'8px',fontSize:'30px',color:'#063'}}>
-//                        <i class="fa-brands fa-shopify"></i>
-//                     </Typography>
-//                     <Box sx={{ml:6,paddingTop:'8px'}}>
-//                         <Typography sx={{border:'1px solid',padding:'12px',borderRadius:'10px',bgcolor:'#063',color:'white',fontFamily:'inherit',fontWeight:'600'}}>
-//                             Membership
-//                         </Typography>
-//                     </Box>
-//                 </Box>
-//             </Box>
-
-//     );
-// }
-
-// export default Header;
-
-
-
-// ==========================================================================
-
 import React, { useState } from "react";
 import {
   Box,
@@ -74,37 +19,23 @@ import logo from "./img/ChatGPT Image Dec 23, 2025, 07_04_39 PM.png";
 const menuItems = ["HOME", "ABOUT", "MENU", "BLOG", "PAGES", "CONTACT"];
 
 function Header() {
-  const [open, setOpen] = useState(false); // mobile drawer
-  const [showAdmin, setShowAdmin] = useState(false); // show admin panel full screen
+  const [open, setOpen] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false); // Show admin panel
   const [authPage, setAuthPage] = useState("login"); // 'login' or 'signup'
 
   const handleMembershipClick = () => setShowAdmin(true);
+
   const handleTabChange = (event, newValue) => setAuthPage(newValue);
 
-  // Full screen admin panel
+  // Admin panel with Login/Signup
   const adminPanel = (
-    <Box
-      sx={{
-        minHeight: "100vh", // full viewport height
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        bgcolor: "#f5f5f5",
-        p: 5,
-        position: "fixed", // ensures it overlays everything
-        top: 0,
-        left: 0,
-        zIndex: 9999, // above all other content
-      }}
-    >
-      <Typography variant="h3" sx={{ mb: 3, color: "#063", textAlign: "center" }}>
+    <Box sx={{ p: 5, maxWidth: 400, mx: "auto" }}>
+      <Typography variant="h3" sx={{ mb: 3, textAlign: "center", color: "#063" }}>
         Admin Panel
       </Typography>
 
-      {/* Tabs */}
-      <Paper sx={{ mb: 3, width: "100%", maxWidth: 400 }}>
+      {/* Tabs for Login / Signup */}
+      <Paper sx={{ mb: 3 }}>
         <Tabs
           value={authPage}
           onChange={handleTabChange}
@@ -117,31 +48,32 @@ function Header() {
         </Tabs>
       </Paper>
 
-      {/* Login Form */}
       {authPage === "login" && (
-        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%", maxWidth: 400 }}>
+        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField label="Email" variant="outlined" fullWidth />
           <TextField label="Password" variant="outlined" type="password" fullWidth />
-          <Button sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}>
+          <Button
+            sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}
+          >
             Login
           </Button>
         </Box>
       )}
 
-      {/* Signup Form */}
       {authPage === "signup" && (
-        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%", maxWidth: 400 }}>
+        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField label="Name" variant="outlined" fullWidth />
           <TextField label="Email" variant="outlined" fullWidth />
           <TextField label="Password" variant="outlined" type="password" fullWidth />
           <TextField label="Confirm Password" variant="outlined" type="password" fullWidth />
-          <Button sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}>
+          <Button
+            sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}
+          >
             Signup
           </Button>
         </Box>
       )}
 
-      {/* Back Button */}
       <Button
         sx={{ mt: 3, bgcolor: "#ccc", color: "#000", "&:hover": { bgcolor: "#aaa" } }}
         onClick={() => setShowAdmin(false)}
@@ -154,7 +86,7 @@ function Header() {
   return (
     <>
       {showAdmin ? (
-        adminPanel // Only admin panel visible, website hidden
+        adminPanel
       ) : (
         <>
           {/* HEADER */}
@@ -173,9 +105,7 @@ function Header() {
             </Box>
 
             {/* DESKTOP MENU */}
-            <Box
-              sx={{ display: { xs: "none", md: "flex" }, gap: "35px", alignItems: "center" }}
-            >
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: "35px", alignItems: "center" }}>
               {menuItems.map((item, i) => (
                 <Typography
                   key={i}
@@ -288,8 +218,3 @@ function Header() {
 }
 
 export default Header;
-
-
-// ============================================================
-
-
