@@ -17,14 +17,14 @@ import Footer from './Food.jsx/Footer'
 
 import Homepg from './Food.jsx/Page.jsx/Homepg'
 import Menupg from './Food.jsx/Page.jsx/Menupg'
-
+import Error from './Food.jsx/Page.jsx/Error'
 
 function App() {
   return (
  
     <>
-    <Header></Header>
-    <Hero></Hero>
+    {/* <Header></Header> */}
+    {/* <Hero></Hero>
     <Fodbox></Fodbox>
     <Softdrink></Softdrink>
     <Menu></Menu>
@@ -34,11 +34,14 @@ function App() {
     <Tea></Tea>
     <Feedback></Feedback>
     <Image></Image>
-    <Footer></Footer>
-    {/* <Sign></Sign> */}
+    <Footer></Footer>  */}
+    {/* * <Sign></Sign> */}
 
+    
     {/* <Homepg></Homepg> */}
-    {/* <Menupg></Menupg> */}
+     {/* <Menupg></Menupg>  */}
+     
+     <Error></Error>
 
     
     </>
