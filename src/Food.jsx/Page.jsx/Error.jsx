@@ -35,13 +35,13 @@
 
 
 import { Box, Typography, Grid } from "@mui/material";
-import Header from "../Sign";
+import Header from "../Header";
 import Footer from "../Footer";
 
 function Error() {
   return (
     <>
-      <Header />
+      <Header></Header>
 
       <Box sx={{ bgcolor: "#ff679a", py: { xs: 5, md: 12 }, px: { xs: 2, md: 10 } }}>
         <Grid container spacing={4} justifyContent="center" alignItems="center">

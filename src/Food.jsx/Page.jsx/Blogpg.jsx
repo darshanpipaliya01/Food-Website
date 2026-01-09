@@ -125,7 +125,7 @@
 
 import { Box, Typography, Grid } from "@mui/material";
 import Footer from "../Footer";
-import Header from "../Sign";
+import Header from "../Header";
 
 function Blogpg() {
   return (

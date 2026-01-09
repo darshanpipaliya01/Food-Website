@@ -8,10 +8,10 @@ import {
     Grid,
     Paper,
 } from "@mui/material";
-import Header from "../Sign";
+import Header from "../Header";
 import Footer from "../Footer";
 
-const ContactUs = () => {
+const Contact = () => {
     return (
         <>
             <Header></Header>
@@ -125,4 +125,4 @@ const ContactUs = () => {
     );
 };
 
-export default ContactUs;
+export default Contact;

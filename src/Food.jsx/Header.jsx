@@ -49,245 +49,120 @@
 
 // export default Header;
 
-
+    
 
 // ==========================================================================
 
+
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  Button,
-  TextField,
-  Tabs,
-  Tab,
-  Paper,
-} from "@mui/material";
+import { Box, Typography, IconButton, Drawer, List, ListItem, ListItemText, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "./img/ChatGPT Image Dec 23, 2025, 07_04_39 PM.png";
 
-const menuItems = ["HOME", "ABOUT", "MENU", "BLOG", "PAGES", "CONTACT"];
+// ===== CONST VARIABLES =====
+const MENU_ITEMS = [
+  { label: "Home", path: "/" },
+    { label: "About", path: "/Aboutpg" },
+  { label: "Error", path: "/Error" },
+  { label: "Menu", path: "/Menupg" },
+  { label: "Blog", path: "/Blogpg" },
+  { label: "Contact", path: "/Contact" },
+];
 
-function Header() {
-  const [open, setOpen] = useState(false); // mobile drawer
-  const [showAdmin, setShowAdmin] = useState(false); // show admin panel full screen
-  const [authPage, setAuthPage] = useState("login"); // 'login' or 'signup'
-
-  const handleMembershipClick = () => setShowAdmin(true);
-  const handleTabChange = (event, newValue) => setAuthPage(newValue);
-
-  // Full screen admin panel
-  const adminPanel = (
-    <Box
-      sx={{
-        minHeight: "100vh", // full viewport height
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        bgcolor: "#f5f5f5",
-        p: 5,
-        position: "fixed", // ensures it overlays everything
-        top: 0,
-        left: 0,
-        zIndex: 9999, // above all other content
-      }}
-    >
-      <Typography variant="h3" sx={{ mb: 3, color: "#063", textAlign: "center" }}>
-        Admin Panel
-      </Typography>
-
-      {/* Tabs */}
-      <Paper sx={{ mb: 3, width: "100%", maxWidth: 400 }}>
-        <Tabs
-          value={authPage}
-          onChange={handleTabChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-        >
-          <Tab label="Login" value="login" />
-          <Tab label="Signup" value="signup" />
-        </Tabs>
-      </Paper>
-
-      {/* Login Form */}
-      {authPage === "login" && (
-        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%", maxWidth: 400 }}>
-          <TextField label="Email" variant="outlined" fullWidth />
-          <TextField label="Password" variant="outlined" type="password" fullWidth />
-          <Button sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}>
-            Login
-          </Button>
-        </Box>
-      )}
-
-      {/* Signup Form */}
-      {authPage === "signup" && (
-        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%", maxWidth: 400 }}>
-          <TextField label="Name" variant="outlined" fullWidth />
-          <TextField label="Email" variant="outlined" fullWidth />
-          <TextField label="Password" variant="outlined" type="password" fullWidth />
-          <TextField label="Confirm Password" variant="outlined" type="password" fullWidth />
-          <Button sx={{ bgcolor: "#063", color: "#fff", "&:hover": { bgcolor: "#045" } }}>
-            Signup
-          </Button>
-        </Box>
-      )}
-
-      {/* Back Button */}
-      <Button
-        sx={{ mt: 3, bgcolor: "#ccc", color: "#000", "&:hover": { bgcolor: "#aaa" } }}
-        onClick={() => setShowAdmin(false)}
-      >
-        Back to Website
-      </Button>
-    </Box>
-  );
+function Header({children}) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-      {showAdmin ? (
-        adminPanel // Only admin panel visible, website hidden
-      ) : (
-        <>
-          {/* HEADER */}
-          <Box
+    <Box sx={{ width: "100%", px: { xs: 2, md: 10 }, py: 2, display: "flex", alignItems: "center" }}>
+      
+      {/* LOGO */}
+      <Box>
+        <img src={logo} alt="Logo" style={{ width: "150px" }} />
+      </Box>
+
+      {/* DESKTOP MENU */}
+      <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4, alignItems: "center", ml:70 }}>
+        {MENU_ITEMS.map((item, idx) => (
+          <Typography
+            key={idx}
+            component={RouterLink}
+            to={item.path}
             sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              px: 2,
-              py: 1,
+              fontWeight: 600,
+              color: "#1E3234",
+              textDecoration: "none",
+              position: "relative",
+              transition: "0.3s",
+              "&:hover": { color: "#006633", transform: "translateY(-2px)" },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                width: "0%",
+                height: "2px",
+                bottom: -4,
+                left: 0,
+                bgcolor: "#006633",
+                transition: "0.3s",
+              },
+              "&:hover::after": { width: "100%" },
             }}
           >
-            {/* LOGO */}
-            <Box>
-              <img src={logo} alt="logo" style={{ width: "150px" }} />
-            </Box>
+            {item.label}
+          </Typography>
+        ))}
+      </Box>
 
-            {/* DESKTOP MENU */}
-            <Box
-              sx={{ display: { xs: "none", md: "flex" }, gap: "35px", alignItems: "center" }}
-            >
-              {menuItems.map((item, i) => (
-                <Typography
-                  key={i}
-                  sx={{
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    position: "relative",
-                    transition: "0.3s",
-                    "&:hover": { color: "#063", transform: "translateY(-3px)" },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      width: "0%",
-                      height: "2px",
-                      bottom: -4,
-                      left: 0,
-                      bgcolor: "#063",
-                      transition: "0.3s",
-                    },
-                    "&:hover::after": { width: "100%" },
-                  }}
-                >
-                  {item}
-                </Typography>
-              ))}
-            </Box>
+      {/* MOBILE MENU ICON */}
+      <IconButton
+        sx={{ display: { xs: "block", md: "none" } }}
+        onClick={() => setDrawerOpen(true)}
+      >
+        <MenuIcon fontSize="large" />
+      </IconButton>
 
-            {/* RIGHT ICONS */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 3 }}>
-              <Typography
+      {/* MOBILE DRAWER */}
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <Box sx={{ width: 250, p: 2 }}>
+          <List>
+            {MENU_ITEMS.map((item, idx) => (
+              <ListItem key={idx} button component={RouterLink} to={item.path} onClick={() => setDrawerOpen(false)}
                 sx={{
-                  fontSize: "28px",
-                  color: "#063",
-                  cursor: "pointer",
-                  transition: "0.4s",
-                  "&:hover": { transform: "rotate(15deg) scale(1.1)" },
-                }}
-              >
-                <i className="fa-brands fa-shopify"></i>
-              </Typography>
-              <Button
-                sx={{
-                  bgcolor: "#063",
-                  color: "#fff",
-                  px: 3,
-                  borderRadius: "10px",
-                  fontWeight: 600,
                   transition: "0.3s",
-                  "&:hover": {
-                    bgcolor: "#045",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
-                  },
+                  "&:hover": { bgcolor: "#006633", color: "#fff", pl: 2 },
                 }}
-                onClick={handleMembershipClick}
               >
-                Membership
-              </Button>
-            </Box>
+                <ListItemText primary={item.label} />
+              </ListItem>
+            ))}
+          </List>
 
-            {/* MOBILE MENU ICON */}
-            <IconButton
-              sx={{ display: { xs: "block", md: "none" } }}
-              onClick={() => setOpen(true)}
-            >
-              <MenuIcon fontSize="large" />
-            </IconButton>
-          </Box>
-
-          {/* MOBILE DRAWER */}
-          <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-            <Box sx={{ width: 260, p: 2 }}>
-              <List>
-                {menuItems.map((item, i) => (
-                  <ListItem
-                    key={i}
-                    button
-                    sx={{
-                      transition: "0.3s",
-                      "&:hover": { bgcolor: "#063", color: "#fff", pl: 3 },
-                    }}
-                  >
-                    <ListItemText primary={item} />
-                  </ListItem>
-                ))}
-              </List>
-
-              {/* MOBILE BUTTON */}
-              <Button
-                fullWidth
-                sx={{
-                  mt: 2,
-                  bgcolor: "#063",
-                  color: "#fff",
-                  py: 1.2,
-                  borderRadius: "8px",
-                  fontWeight: 600,
-                  "&:hover": { bgcolor: "#045" },
-                }}
-                onClick={handleMembershipClick}
-              >
-                Membership
-              </Button>
-            </Box>
-          </Drawer>
-        </>
-      )}
+          {/* MOBILE BUTTON */}
+          <Button
+            fullWidth
+            sx={{
+              mt: 2,
+              bgcolor: "#006633",
+              color: "#fff",
+              py: 1.2,
+              borderRadius: "8px",
+              fontWeight: 600,
+              "&:hover": { bgcolor: "#004d33" },
+            }}
+          >
+            Membership
+          </Button>
+        </Box>
+      </Drawer>
+    </Box>
+    {children}
     </>
   );
 }
 
 export default Header;
+
 
 
 // ============================================================

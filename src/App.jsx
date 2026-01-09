@@ -14,18 +14,24 @@ import Feedback from './Food.jsx/Feedback'
 import Image from './Food.jsx/Image'
 import Footer from './Food.jsx/Footer'
 
-
-import Homepg from './Food.jsx/Page.jsx/Homepg'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Aboutpg from './Food.jsx/Page.jsx/Aboutpg'
 import Menupg from './Food.jsx/Page.jsx/Menupg'
 import Error from './Food.jsx/Page.jsx/Error'
 import Blogpg from './Food.jsx/Page.jsx/Blogpg'
 import Contact from './Food.jsx/Page.jsx/Contact'
+import Coldrinks from './Coldrinks';
 
 function App() {
   return (
  
     <>
-     <Header></Header> 
+     {/* <Header></Header> 
     <Hero></Hero>
     <Fodbox></Fodbox>
     <Softdrink></Softdrink>
@@ -36,7 +42,7 @@ function App() {
     <Tea></Tea>
     <Feedback></Feedback>
     <Image></Image>
-    <Footer></Footer>   
+    <Footer></Footer>    */}
      {/* <Sign></Sign>  */}
 
     
@@ -46,6 +52,30 @@ function App() {
      {/* <Blogpg></Blogpg> */}
      {/* <Contact></Contact> */}
 
+
+     <Router>
+
+        <Switch>
+          <Route exact path="/">
+            <Coldrinks />
+          </Route>
+          <Route path="/Aboutpg">
+            < Aboutpg/>
+          </Route>
+          <Route path="/Error">
+            <  Error/>
+          </Route>
+          <Route path="/Menupg">
+            <Menupg />
+          </Route>
+          <Route path="/Blogpg">
+            <Blogpg/>
+          </Route>
+          <Route path="/Contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </Router>
 
     </>
 

@@ -192,7 +192,7 @@
 
 
 import { Box, Typography } from "@mui/material";
-import Header from "../Sign";
+import Header from "../Header";
 import Footer from "../Footer";
 
 const marqueeItems = [
@@ -209,7 +209,7 @@ const marqueeItems = [
 function Homepg() {
   return (
     <>
-      <Header />
+      <Header></Header>
 
       <Box sx={{ pt: { xs: "80px", md: "100px" } }}>
         {/* ===== Hero Text ===== */}
