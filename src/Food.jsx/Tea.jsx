@@ -76,59 +76,70 @@
 // export default Tea;
 
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button, Stack } from "@mui/material";
 
 function Tea() {
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column-reverse", md: "row" }, // mobile stacked, desktop row
         alignItems: "center",
-        px: { xs: 2, md: 10 },
-        py: { xs: 6, md: 10 },
-        gap: { xs: 6, md: 10 },
+        justifyContent: "space-between",
+        px: { xs: 3, md: 10 },
+        py: { xs: 6, md: 12 },
+        gap: { xs: 4, md: 0 },
       }}
     >
-      {/* LEFT CONTENT */}
-      <Box sx={{ flex: 1,padding:'20px' }}>
+      {/* LEFT TEXT CONTENT */}
+      <Box sx={{ width: { xs: "100%", md: "50%" } }}>
         <Typography
           sx={{
-            color: "#2a435d",
+            fontSize: { xs: "28px", sm: "32px", md: "40px" },
             fontWeight: 900,
-            fontSize: { xs: "28px", md: "40px" },
+            fontFamily: "inherit",
+            color: "#2a435d",
           }}
         >
           Brand Iced Green
         </Typography>
 
-        <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{ mt: 1, flexWrap: "wrap" }}
+        >
           <Typography
             sx={{
-              color: "#2a435d",
+              fontSize: { xs: "28px", sm: "32px", md: "40px" },
               fontWeight: 900,
-              fontSize: { xs: "28px", md: "40px" },
+              lineHeight: 1.2,
+              fontFamily: "inherit",
+              color: "#2a435d",
             }}
           >
             Tea Lemon
           </Typography>
           <Typography
             sx={{
-              ml: 1,
-              color: "#006633",
+              fontSize: { xs: "28px", sm: "32px", md: "40px" },
               fontWeight: 900,
-              fontSize: { xs: "28px", md: "40px" },
+              lineHeight: 1.2,
+              fontFamily: "inherit",
+              color: "#006633",
             }}
           >
             Juice
           </Typography>
-        </Box>
+        </Stack>
 
         <Typography
           sx={{
-            color: "#006633",
+            fontSize: { xs: "28px", sm: "32px", md: "40px" },
             fontWeight: 900,
-            fontSize: { xs: "28px", md: "40px" },
+            fontFamily: "inherit",
+            color: "#006633",
+            mt: 1,
           }}
         >
           Food Included
@@ -137,105 +148,80 @@ function Tea() {
         <Typography
           sx={{
             mt: 2,
-            fontSize: "14px",
+            fontSize: { xs: "14px", md: "16px" },
+            fontWeight: 500,
+            fontFamily: "inherit",
             color: "#2a435d",
-            maxWidth: 420,
           }}
         >
-          Christmas is coming! Get your gifts sorted early, then you can sit back
-          and enjoy some festive beers for yourself!
+          Christmas is coming! Get your gifts sorted early, then you can <br />
+          sit back and enjoy some festive beers for yourself!
         </Typography>
 
         {/* STATS */}
-        <Box
-          sx={{
-            display: "flex",
-            gap: { xs: 3, md: 4 },
-            mt: 3,
-            flexWrap: "wrap",
-          }}
+        <Stack
+          direction="row"
+          spacing={{ xs: 2, md: 4 }}
+          sx={{ mt: 3, flexWrap: "wrap" }}
         >
           {[
-            { title: "Extra Juice", value: "15%" },
-            { title: "Alcohol", value: "0%" },
-            { title: "Vitamin A-Z", value: "90%" },
-          ].map((item, i) => (
-            <Box key={i}>
+            { label: "Extra Juice", value: "15%" },
+            { label: "Alcohol", value: "0%" },
+            { label: "Vitamin A-Z", value: "90%" },
+          ].map((item, idx) => (
+            <Box key={idx}>
               <Typography
                 sx={{
-                  fontSize: "16px",
-                  color: "#2a435d",
+                  fontSize: { xs: "16px", md: "18px" },
                   fontWeight: 700,
+                  fontFamily: "inherit",
+                  color: "#2a435d",
                 }}
               >
-                {item.title}
+                {item.label}
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "32px",
-                  color: "#006633",
+                  fontSize: { xs: "24px", md: "32px" },
                   fontWeight: 900,
+                  fontFamily: "inherit",
+                  color: "#006633",
                 }}
               >
                 {item.value}
               </Typography>
             </Box>
           ))}
-        </Box>
+        </Stack>
 
         {/* BUTTON */}
-        <Box sx={{ mt: 4 }}>
-          <Typography
-            sx={{
-              width: 120,
-              textAlign: "center",
-              bgcolor: "#006633",
-              color: "#fff",
-              py: 1.2,
-              borderRadius: "10px",
-              fontWeight: 600,
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                backgroundColor: "#004d26",
-                transform: "translateY(-4px)",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-              },
-            }}
-          >
-            Shop Now
-          </Typography>
-        </Box>
+        <Button
+          sx={{
+            mt: 3,
+            bgcolor: "#006633",
+            color: "#fff",
+            fontWeight: 600,
+            px: 4,
+            py: 1.5,
+            borderRadius: 2,
+            "&:hover": { bgcolor: "#0096c7" },
+          }}
+        >
+          Shop Now
+        </Button>
       </Box>
 
       {/* RIGHT IMAGE */}
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          sx={{
-            maxWidth: 500,
+      <Box sx={{ width: { xs: "100%", md: "50%" }, textAlign: "center" }}>
+        <img
+          src="https://png.pngtree.com/png-clipart/20250111/original/pngtree-tropical-fruit-juice-with-splash-and-fresh-fruits-png-image_19080900.png"
+          alt="Tea Juice"
+          style={{
             width: "100%",
-            transition: "all 0.6s ease",
-            "&:hover img": {
-              transform: "scale(1.08) rotate(-2deg)",
-            },
+            maxWidth: "500px",
+            transition: "0.4s",
           }}
-        >
-          <img
-            src="https://png.pngtree.com/png-clipart/20250111/original/pngtree-tropical-fruit-juice-with-splash-and-fresh-fruits-png-image_19080900.png"
-            alt="Juice"
-            style={{
-              width: "100%",
-              transition: "all 0.6s ease",
-            }}
-          />
-        </Box>
+        />
       </Box>
     </Box>
   );

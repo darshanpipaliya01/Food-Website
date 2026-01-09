@@ -91,7 +91,7 @@
 
 
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 
 function Softdrink() {
   return (
@@ -99,210 +99,111 @@ function Softdrink() {
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        gap: { xs: 6, md: 10 },
-        px: { xs: 2, md: 6 },
-        py: { xs: 6, md: 10 },
-        alignItems: "center",
+        flexWrap: "wrap",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+        px: { xs: 2, md: 10 },
+        py: { xs: 6, md: 12 },
+        gap: { xs: 4, md: 0 },
       }}
     >
-      {/* LEFT IMAGE CONTENT */}
+      {/* LEFT SIDE */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          gap: 4,
-          alignItems: "center",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "flex-start",
+          gap: { xs: 4, md: 6 },
+          width: { xs: "100%", md: "60%" },
         }}
       >
-        {/* LEFT CARD */}
-        <Box
-          sx={{
-            p: 3,
-            textAlign: "center",
-            transition: "0.4s",
-            "&:hover": {
-              transform: "translateY(-8px)",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-            },
-          }}
-        >
+        {/* FIRST BOX */}
+        <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
           <img
             src="https://html.imjol.com/khadyo/khadyo/assets/images/img/hticon1.png"
             alt=""
+            style={{ width: "80px", marginBottom: "10px" }}
           />
-
-          {/* STARS */}
-          <Box
-            sx={{
-              mt: 1,
-              color: "orange",
-              transition: "0.3s",
-              "&:hover": { transform: "scale(1.05)" },
-            }}
-          >
-            <i className="fa-solid fa-star"></i>{" "}
-            <i className="fa-solid fa-star"></i>{" "}
-            <i className="fa-solid fa-star"></i>{" "}
-            <i className="fa-solid fa-star"></i>{" "}
-            <i className="fa-solid fa-star"></i>
+          <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" }, color: "orange", gap: 0.5 }}>
+            {[...Array(5)].map((_, idx) => (
+              <i key={idx} className="fa-solid fa-star"></i>
+            ))}
           </Box>
-
-          <Typography sx={{ fontSize: 22, fontWeight: 700, mt: 1 }}>
+          <Typography sx={{ fontSize: { xs: "20px", md: "24px" }, fontWeight: 700, mt: 1 }}>
             5 Star Rating
           </Typography>
-
-          <Typography sx={{ fontSize: 15, fontWeight: 500, mt: 1 }}>
-            Our All Drink Product <br /> Kegs of the moment!
+          <Typography sx={{ fontSize: { xs: "14px", md: "16px" }, mt: 1 }}>
+            Our All Drink Prodcut <br /> Kegs of the moment!
           </Typography>
-
-          <Box
-            sx={{
-              mt: 4,
-              "&:hover img": { transform: "scale(1.08)" },
-            }}
-          >
+          <Box sx={{ mt: 3 }}>
             <img
               src="https://html.imjol.com/khadyo/khadyo/assets/images/img/htimg2.jpg"
               alt=""
-              style={{ width: "180px", transition: "0.4s" }}
+              style={{ width: "100%", maxWidth: "200px" }}
             />
           </Box>
         </Box>
 
-        {/* EXPERIENCE CARD */}
-        <Box sx={{ textAlign: "center" }}>
-          <Box
-            sx={{
-              "&:hover img": { transform: "scale(1.08)" },
-            }}
-          >
-            <img
-              src="https://html.imjol.com/khadyo/khadyo/assets/images/img/htimg1.jpg"
-              alt=""
-              style={{
-                width: "180px",
-                transition: "0.4s",
-              }}
-            />
-          </Box>
-
-          <Box sx={{ mt: 3 }}>
-            <Typography
-              sx={{
-                fontSize: 30,
-                fontWeight: 800,
-                color: "#006633",
-              }}
-            >
+        {/* SECOND BOX */}
+        <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+          <img
+            src="https://html.imjol.com/khadyo/khadyo/assets/images/img/htimg1.jpg"
+            alt=""
+            style={{ width: "100%", maxWidth: "200px", marginBottom: "20px" }}
+          />
+          <Box>
+            <Typography sx={{ fontSize: { xs: "28px", md: "32px" }, fontWeight: 700, color: "#006633" }}>
               25 Years+
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 15,
-                fontWeight: 700,
-                color: "#2a435d",
-              }}
-            >
+            <Typography sx={{ fontSize: { xs: "14px", md: "16px" }, fontWeight: 700, color: "#2a435d" }}>
               experience skills
             </Typography>
           </Box>
         </Box>
       </Box>
 
-      {/* RIGHT CONTENT */}
-      <Box sx={{ maxWidth: "520px" }}>
-        <Typography
-          sx={{
-            fontSize: { xs: 28, md: 40 },
-            fontWeight: 900,
-            color: "#2a435d",
-            transition: "0.4s",
-            "&:hover": { transform: "translateX(6px)" },
-          }}
-        >
+      {/* RIGHT SIDE */}
+      <Box sx={{ width: { xs: "100%", md: "38%" }, mt: { xs: 6, md: 0 } }}>
+        <Typography sx={{ fontSize: { xs: "28px", md: "40px" }, fontWeight: 900, color: "#2a435d" }}>
           Softdrink Help Your <br /> Harmoneuous & Relation
         </Typography>
-
-        <Typography
-          sx={{
-            fontSize: { xs: 28, md: 40 },
-            fontWeight: 900,
-            color: "#006633",
-          }}
-        >
+        <Typography sx={{ fontSize: { xs: "28px", md: "40px" }, fontWeight: 900, color: "#006633" }}>
           Health
         </Typography>
-
-        <Typography
-          sx={{
-            fontSize: 14,
-            fontWeight: 500,
-            mt: 1,
-            color: "#2a435d",
-          }}
-        >
-          Christmas is coming! Get your gifts sorted early, then you can sit back
-          and enjoy some festive beers for yourself!
+        <Typography sx={{ fontSize: { xs: "12px", md: "13px" }, mt: 1, color: "#2a435d" }}>
+          Christmas is coming! Get your gifts sorted early, then you can sit back and enjoy some <br />
+          festive beers for yourself!
         </Typography>
 
-        {/* QUOTE */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            mt: 4,
-            gap: 2,
-          }}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", mt: 4, gap: 2 }}>
           <img
-            src="https://img.freepik.com/premium-photo/smiley-face-with-sunglasses-straw-front-glass-beer_1046684-41171.jpg"
+            src="https://img.freepik.com/premium-photo/smiley-face-with-sunglasses-straw-front-glass-beer_1046684-41171.jpg?semt=ais_hybrid&w=740&q=80"
             alt=""
-            style={{ width: "70px", borderRadius: "50%" }}
+            style={{ width: "60px" }}
           />
-
-          <Typography
-            sx={{
-              fontSize: 20,
-              fontWeight: 800,
-              color: "#2a435d",
-            }}
-          >
-            They Who Drink Soft <br /> Will think Better
+          <Typography sx={{ fontSize: { xs: "16px", md: "22px" }, fontWeight: 800, color: "#2a435d" }}>
+            They Who Drink Soft <br /> Will think Batter
           </Typography>
         </Box>
 
-        <Typography
-          sx={{
-            mt: 2,
-            ml: { xs: 0, md: 10 },
-            fontWeight: 500,
-            color: "#2a435d",
-          }}
-        >
-          <i className="fa-solid fa-microphone"></i> Washington Irving
+        <Typography sx={{ mt: 2, color: "#2a435d", fontWeight: 500, display: "flex", alignItems: "center", gap: 1 }}>
+          <i className="fa-solid fa-microphone"></i> Washington Lrving
         </Typography>
 
-        {/* BUTTON */}
-        <Box
+        <Button
           sx={{
             mt: 4,
-            width: "140px",
             bgcolor: "#006633",
-            color: "#fff",
-            py: 1.2,
-            textAlign: "center",
-            borderRadius: "10px",
-            cursor: "pointer",
-            fontWeight: 600,
-            transition: "0.4s",
-            "&:hover": {
-              transform: "translateY(-6px)",
-              boxShadow: "0 15px 35px rgba(0,0,0,0.3)",
-            },
+            color: "white",
+            borderRadius: 2,
+            px: 4,
+            py: 1.5,
+            fontWeight: 500,
+            "&:hover": { bgcolor: "#0096c7" },
           }}
         >
           Shop Now
-        </Box>
+        </Button>
       </Box>
     </Box>
   );

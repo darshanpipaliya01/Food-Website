@@ -22,45 +22,46 @@
 // export default Feedback;
 
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 
 function Feedback() {
   return (
-    <Box sx={{ml:60,paddingTop:'50px'}}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: { xs: "center", md: "flex-start" },
-          alignItems: "center",
-          gap: { xs: 2, md: 2 },
-        }}
+    <Box
+      sx={{
+        py: { xs: 8, md: 15 }, // padding top & bottom responsive
+        px: { xs: 3, md: 10 }, // responsive horizontal padding
+        backgroundColor: "#f5f5f5", // optional background
+      }}
+    >
+      <Stack
+        direction={{ xs: "column", sm: "row" }} // stacked on mobile, row on desktop
+        spacing={{ xs: 1, sm: 2 }}
+        justifyContent="center"
+        alignItems="center"
       >
         <Typography
           sx={{
-            fontSize: { xs: "32px", md: "40px" },
+            fontSize: { xs: "28px", sm: "36px", md: "40px" }, // responsive font size
             fontWeight: 800,
             fontFamily: "inherit",
             color: "#2a435d",
-            transition: "0.4s",
-            "&:hover": { color: "#0096c7", transform: "translateY(-4px)" },
+            textAlign: "center",
           }}
         >
           Happy
         </Typography>
         <Typography
           sx={{
-            fontSize: { xs: "32px", md: "40px" },
+            fontSize: { xs: "28px", sm: "36px", md: "40px" },
             fontWeight: 800,
             fontFamily: "inherit",
             color: "#006633",
-            transition: "0.4s",
-            "&:hover": { color: "#ff6f00", transform: "translateY(-4px)" },
+            textAlign: "center",
           }}
         >
           Feedback
         </Typography>
-      </Box>
+      </Stack>
     </Box>
   );
 }

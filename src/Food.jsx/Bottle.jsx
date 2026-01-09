@@ -96,16 +96,7 @@
 // export default Bottle;
 
 
-
-import {
-  Box,
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  Button,
-} from "@mui/material";
+import { Box, Grid, Typography, Card, CardContent, CardMedia, Button } from "@mui/material";
 
 const bottles = [
   {
@@ -128,12 +119,13 @@ const bottles = [
 
 function Bottle() {
   return (
-    <Box sx={{ py: { xs: 6, md: 12 } }}>
+    <Box sx={{ py: { xs: 6, md: 12 }, px: { xs: 2, md: 10 } }}>
       {/* Heading */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
+          flexWrap: "wrap",
           gap: 1,
           mb: 6,
         }}
@@ -141,7 +133,7 @@ function Bottle() {
         <Typography
           sx={{
             color: "#2a435d",
-            fontSize: { xs: 26, md: 38 },
+            fontSize: { xs: 22, sm: 26, md: 38 },
             fontWeight: 800,
           }}
         >
@@ -150,7 +142,7 @@ function Bottle() {
         <Typography
           sx={{
             color: "#063",
-            fontSize: { xs: 26, md: 38 },
+            fontSize: { xs: 22, sm: 26, md: 38 },
             fontWeight: 800,
           }}
         >
@@ -159,21 +151,20 @@ function Bottle() {
       </Box>
 
       {/* Cards */}
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center">
         {bottles.map((item, index) => (
           <Grid
             item
             xs={12}
             sm={6}
             md={3}
-            lg={3}
-            xl={3}
             key={index}
+            sx={{ display: "flex", justifyContent: "center" }}
           >
             <Card
               sx={{
-                height: "400px",
-                width:'250px',
+                height: { xs: "auto", md: "400px" },
+                width: { xs: "100%", sm: 220, md: 250 },
                 textAlign: "center",
                 borderRadius: 3,
                 transition: "0.4s ease",
@@ -192,8 +183,8 @@ function Bottle() {
                   image={item.img}
                   alt={item.title}
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: 200,
+                    width: { xs: 140, sm: 160, md: 200 },
+                    height: { xs: 140, sm: 180, md: 200 },
                     objectFit: "contain",
                     mx: "auto",
                     transition: "0.4s",
@@ -205,7 +196,7 @@ function Bottle() {
                 <Typography
                   sx={{
                     color: "#2a435d",
-                    fontSize: 24,
+                    fontSize: { xs: 20, md: 24 },
                     fontWeight: 800,
                     mt: 1,
                   }}
@@ -215,7 +206,7 @@ function Bottle() {
 
                 <Typography
                   sx={{
-                    fontSize: 13,
+                    fontSize: { xs: 12, md: 13 },
                     color: "#2a435d",
                     fontWeight: 500,
                     py: 2,
@@ -227,7 +218,7 @@ function Bottle() {
 
                 <Typography
                   sx={{
-                    fontSize: 18,
+                    fontSize: { xs: 16, md: 18 },
                     color: "#2a435d",
                     fontWeight: 700,
                   }}
@@ -246,7 +237,7 @@ function Bottle() {
           sx={{
             bgcolor: "#006633",
             color: "#fff",
-            px: 4,
+            px: { xs: 3, md: 4 },
             py: 1.2,
             borderRadius: 2,
             fontWeight: 600,
