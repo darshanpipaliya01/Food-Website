@@ -91,7 +91,7 @@ function Tea() {
       }}
     >
       {/* LEFT CONTENT */}
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1,padding:'20px' }}>
         <Typography
           sx={{
             color: "#2a435d",

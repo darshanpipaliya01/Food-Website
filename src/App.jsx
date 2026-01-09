@@ -18,13 +18,15 @@ import Footer from './Food.jsx/Footer'
 import Homepg from './Food.jsx/Page.jsx/Homepg'
 import Menupg from './Food.jsx/Page.jsx/Menupg'
 import Error from './Food.jsx/Page.jsx/Error'
+import Blogpg from './Food.jsx/Page.jsx/Blogpg'
+import Contact from './Food.jsx/Page.jsx/Contact'
 
 function App() {
   return (
  
     <>
-    {/* <Header></Header> */}
-    {/* <Hero></Hero>
+     <Header></Header> 
+    <Hero></Hero>
     <Fodbox></Fodbox>
     <Softdrink></Softdrink>
     <Menu></Menu>
@@ -34,16 +36,17 @@ function App() {
     <Tea></Tea>
     <Feedback></Feedback>
     <Image></Image>
-    <Footer></Footer>  */}
-    {/* * <Sign></Sign> */}
+    <Footer></Footer>   
+     {/* <Sign></Sign>  */}
 
     
-    {/* <Homepg></Homepg> */}
-     {/* <Menupg></Menupg>  */}
-     
-     <Error></Error>
+     {/* <Homepg></Homepg>  */}
+      {/* <Menupg></Menupg>  */}
+     {/* <Error></Error> */}
+     {/* <Blogpg></Blogpg> */}
+     {/* <Contact></Contact> */}
 
-    
+
     </>
 
   );

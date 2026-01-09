@@ -26,6 +26,7 @@ import { Box } from "@mui/material";
 
 function ImageSection() {
   const imageStyle = {
+  
     width: "100%",
     height: "100%",
     objectFit: "cover",
@@ -36,6 +37,7 @@ function ImageSection() {
   return (
     <Box
       sx={{
+        
         px: { xs: 2, md: 6 },
         pt: { xs: 6, md: 20 },
         pb: 6,
@@ -43,6 +45,8 @@ function ImageSection() {
     >
       <Box
         sx={{
+          padding:'20px',
+          paddingTop:'50px',
           display: "grid",
           gridTemplateColumns: {
             xs: "repeat(2, 1fr)",   // 📱 mobile → 2 images

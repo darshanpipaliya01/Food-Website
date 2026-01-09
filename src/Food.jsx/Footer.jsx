@@ -91,211 +91,140 @@
 
 // export default Footer;
 
-
-
-import { Box, Typography } from "@mui/material";
-import logo from "./img/ChatGPT Image Dec 23, 2025, 07_04_39 PM.png";
+import { Box, Typography, TextField, Button } from "@mui/material";
+import logo from './img/ChatGPT Image Dec 23, 2025, 07_04_39 PM.png';
 
 function Footer() {
-
-  const socialIcon = {
-    width: 48,
-    height: 48,
-    borderRadius: "50%", 
-    border: "2px solid #006633",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#006633",
-    fontSize: "18px",
-    cursor: "pointer",
-    transition: "all 0.45s ease",
-    flexShrink: 0, 
-    "&:hover": {
-      backgroundColor: "#006633",
-      color: "#fff",
-      transform: "rotate(360deg) scale(1.2)",
-      boxShadow: "0 0 20px rgba(0,102,51,0.7)",
-    },
-  };
-
   return (
-    <Box>
     <Box
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-        px: { xs: 2, md: 8 },
-        py: 6,
+        bgcolor: "#f8f8f8",
+        py: { xs: 6, md: 10 },
+        px: { xs: 3, md: 10 },
       }}
     >
-      {/* LEFT SECTION */}
-      <Box sx={{ width: { xs: "100%", md: "22%" } }}>
-        <img style={{ width: "200px" }} src={logo} alt="" />
-
-        <Typography sx={{ ml: "50px", mt: 1, fontSize: "12px", fontWeight: 600 }}>
-          570 8th Ave, New York, NY 10018 <br /> United States
-        </Typography>
-
-        <Typography sx={{ ml: "50px", mt: 1, color: "#006633" }}>
-          Google map
-        </Typography>
-
-        {/* 🔥 SOCIAL ICONS — ALWAYS ONE LINE */}
-        <Box
-          sx={{
-            display: "flex",
-            gap: 1.5,
-            mt: 3,
-            ml: "50px",
-            flexWrap: "nowrap", // ✅ ek j line
-            overflow: "hidden",
-          }}
-        >
-          <Box sx={socialIcon}><i className="fa-brands fa-facebook-f" /></Box>
-          <Box sx={socialIcon}><i className="fa-brands fa-instagram" /></Box>
-          <Box sx={socialIcon}><i className="fa-brands fa-twitter" /></Box>
-        </Box>
-      </Box>
-
-      {/* DELIVERY */}
-      <Box sx={{paddingTop:'50px', width: { xs: "100%", md: "22%" }, mt: { xs: 4, md: 0 } }}>
-        <Typography sx={{ fontSize: 20, fontWeight: 700, color: "#2a435d" }}>
-          Delivery Support
-        </Typography>
-
-        <Typography sx={{paddingTop:'30px', mt: 1, fontSize: 22, fontWeight: 700, color: "#006633" }}>
-          <i className="fa-solid fa-phone" /> 123-59794069
-        </Typography>
-
-        <Typography sx={{ mt: 1 }}>Monday – Friday: 9:00-20:00</Typography>
-        <Typography sx={{ mt: 1 }}>Saturday: 11:00 – 15:00</Typography>
-
-        <Typography sx={{ mt: 1, color: "#006633", fontWeight: 600 }}>
-          Email Address
-        </Typography>
-
-        <Typography sx={{ mt: 1, fontWeight: 600 }}>
-          <i className="fa-solid fa-envelope" /> infofoodkahn@gmail.com
-        </Typography>
-      </Box>
-
-      {/* INFO */}
-      <Box sx={{paddingTop:'50px', width: { xs: "100%", md: "18%" }, mt: { xs: 4, md: 0 } }}>
-        <Typography sx={{ fontSize: 20, fontWeight: 700 }}>
-          Information
-        </Typography>
-
-        {["About Us", "Delivery Information", "Privacy Policy", "Sales", "Terms & Conditions"].map((item) => (
-          <Typography
-            key={item}
-            sx={{
-              mt: 1,
-              cursor: "pointer",
-              transition: "0.3s",
-              "&:hover": { color: "#006633", pl: 1 },
-            }}
-          >
-            {item}
-          </Typography>
-        ))}
-      </Box>
-
-      {/* NEWSLETTER */}
-      <Box sx={{ width: { xs: "100%", md: "22%" }, mt: { xs: 4, md: 0 } }}>
-        <Typography sx={{ fontSize: 20, fontWeight: 700 ,paddingTop:'50px'}}>
-          Newsletter
-        </Typography>
-
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">
-            <i className="fas fa-paper-plane"></i>
-          </button>
-        </form>
-
-        <Typography
-          sx={{
-            mt: 2,
-            width: 120,
-            textAlign: "center",
-            bgcolor: "#006633",
-            color: "#fff",
-            py: 1,
-            borderRadius: 2,
-            cursor: "pointer",
-            transition: "0.3s",
-            "&:hover": { transform: "scale(1.08)" },
-          }}
-        >
-          Subscribe
-        </Typography>
-      </Box>
-    </Box>
-
-    <Box
-      sx={{
-        px: { xs: 2, md: 6 },
-        py: 3,
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: { xs: 2, md: 0 },
-      }}
-    >
-      {/* LEFT TEXT */}
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",
           justifyContent: { xs: "center", md: "flex-start" },
-          textAlign: { xs: "center", md: "left" },
+          gap: { xs: 6, md: 12 },
         }}
       >
-        <Typography
-          sx={{
-            fontFamily: "inherit",
-            fontSize: { xs: "14px", md: "18px" },
-            fontWeight: 700,
-          }}
-        >
-          Copyright © 2021
-        </Typography>
+        {/* LOGO & ADDRESS */}
+        <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{
+              width: "200px",
+              maxWidth: "100%",
+              transition: "0.4s",
+              cursor: "pointer",
+            }}
+          />
+          <Typography sx={{ mt: 2, fontSize: "14px", fontWeight: 600 }}>
+            570 8th Ave, New York, NY 10018 <br />
+            United States
+          </Typography>
+          <Typography
+            sx={{
+              mt: 1,
+              fontSize: "16px",
+              fontWeight: 500,
+              color: "#006633",
+              cursor: "pointer",
+              "&:hover": { color: "#0096c7", textDecoration: "underline" },
+            }}
+          >
+            Google map
+          </Typography>
+        </Box>
 
-        <Typography
-          sx={{
-            ml: 1,
-            fontSize: { xs: "14px", md: "18px" },
-            fontFamily: "inherit",
-            fontWeight: 700,
-            color: "#006633",
-          }}
-        >
-          Frosty Drinks
-        </Typography>
-      </Box>
+        {/* DELIVERY SUPPORT */}
+        <Box>
+          <Typography sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}>
+            Delivery Support
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "#006633",
+              mb: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              "&:hover": { color: "#0096c7" },
+            }}
+          >
+            <i className="fa-solid fa-phone"></i> 123-59794069
+          </Typography>
+          <Typography sx={{ mb: 0.5 }}>Monday – Friday: 9:00-20:00</Typography>
+          <Typography sx={{ mb: 1 }}>Saturday: 11:00 – 15:00</Typography>
+          <Typography
+            sx={{
+              fontWeight: 600,
+              color: "#006633",
+              mb: 1,
+              "&:hover": { color: "#0096c7", cursor: "pointer" },
+            }}
+          >
+            Email Address
+          </Typography>
+          <Typography sx={{ fontWeight: 600, display: "flex", alignItems: "center", gap: 1 }}>
+            <i className="fa-solid fa-envelope"></i> infofoodkahn@gmail.com
+          </Typography>
+        </Box>
 
-      {/* RIGHT IMAGE */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: { xs: "center", md: "flex-end" },
-        }}
-      >
-        <img
-          src="https://html.imjol.com/khadyo/khadyo/assets/images/img/payment2.png"
-          alt="payment"
-          style={{
-            width: "380px",
-            maxWidth: "100%",
-          }}
-        />
+        {/* INFORMATION */}
+        <Box>
+          <Typography sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}>
+            Information
+          </Typography>
+          {["About Us", "Delivery Information", "Privacy Policy", "Sales", "Terms & Conditions"].map((item, idx) => (
+            <Typography
+              key={idx}
+              sx={{
+                fontWeight: 500,
+                mb: 0.5,
+                cursor: "pointer",
+                "&:hover": { color: "#006633" },
+              }}
+            >
+              {item}
+            </Typography>
+          ))}
+        </Box>
+
+        {/* NEWSLETTER */}
+        <Box sx={{ maxWidth: "220px" }}>
+          <Typography sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}>
+            Newsletter
+          </Typography>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <TextField
+              placeholder="Enter your email"
+              type="email"
+              fullWidth
+              sx={{ mb: 2 }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                width: "100%",
+                bgcolor: "#006633",
+                "&:hover": { bgcolor: "#0096c7" },
+              }}
+            >
+              Subscribe
+            </Button>
+          </form>
+        </Box>
       </Box>
     </Box>
-          </Box>
-
   );
 }
 
