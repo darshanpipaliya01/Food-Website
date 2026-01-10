@@ -164,7 +164,7 @@ function Softdrink() {
 
       {/* RIGHT SIDE */}
       <Box sx={{ width: { xs: "100%", md: "38%" }, mt: { xs: 6, md: 0 } }}>
-        <Typography sx={{ fontSize: { xs: "28px", md: "40px" }, fontWeight: 900, color: "#2a435d" }}>
+        <Typography sx={{ fontSize: '36px', fontWeight: 900, color: "#2a435d" }}>
           Softdrink Help Your <br /> Harmoneuous & Relation
         </Typography>
         <Typography sx={{ fontSize: { xs: "28px", md: "40px" }, fontWeight: 900, color: "#006633" }}>

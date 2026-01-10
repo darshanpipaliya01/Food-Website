@@ -33,10 +33,6 @@ function Coldrinks() {
     <Image></Image>
     <Footer></Footer>   
 
-
-
-     
-
     </>
 
   );

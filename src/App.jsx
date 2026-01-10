@@ -26,6 +26,10 @@ import Error from './Food.jsx/Page.jsx/Error'
 import Blogpg from './Food.jsx/Page.jsx/Blogpg'
 import Contact from './Food.jsx/Page.jsx/Contact'
 import Coldrinks from './Coldrinks';
+// import Login from "./Login";
+import Admin from "./Admin";
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 function App() {
   return (
@@ -76,6 +80,16 @@ function App() {
           </Route>
         </Switch>
       </Router>
+
+          {/* <BrowserRouter>
+      <Header>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/admin" component={Admin} />
+        </Switch>
+      </Header>
+    </BrowserRouter> */}
+
 
     </>
 
